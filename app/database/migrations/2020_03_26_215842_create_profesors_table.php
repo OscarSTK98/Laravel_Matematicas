@@ -19,7 +19,7 @@ class CreateProfesorsTable extends Migration
             $table->string('Apellidos');
             $table->string('Username');
             $table->string('Contraseña');
-            $table->string('Tipo');
+            $table->integer('Tipo');
             $table->string('ClaveSubida');
         });
     }

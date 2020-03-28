@@ -27,11 +27,27 @@
         </thead>
     
         <tbody id="myTable" style="width: 50%;">
+            
+            @foreach($Materiales as $item)
             <tr>
-                <th></th>
+                <th scope="row"><center>{{$item->idMaterial}}</center></th>
+                <td><center>{{$item->Asignatura}}</center></td>
+                <td><center>{{$item->Grupo}}</center></td>
+                <td><center>{{$item->Nombre()}}</center></td>
 
-
+                @switch($item->Acceso)
+                    @case(1)
+                        <td><center>Restringido</center></td>
+                        <td><center><input type='button' class='btn btn-primary' value='Descargar Archivo'></center></td>
+                        @break
+                    
+                    @case(0)
+                        <td><center>Libre</center></td>
+                        <td><center><input type='button' class='btn btn-primary' value='Descargar Archivo'></center></td>
+                        @break
+                @endswitch
             </tr>         
+            @endforeach()
         </tbody>
     </table>
 
