@@ -27,7 +27,11 @@
         </thead>
     
         <tbody id="myTable" style="width: 50%;">
-                 
+            <tr>
+                <th></th>
+
+
+            </tr>         
         </tbody>
     </table>
 
