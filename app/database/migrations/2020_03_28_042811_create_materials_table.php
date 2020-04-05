@@ -16,14 +16,14 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('idMaterial');
-            $table->string('Nombre');
+            $table->string('NombreArchivo');
             $table->string('Asignatura');
             $table->string('Grupo');
             $table->string('Contraseña');
             $table->integer('Acceso');
             
-            $table->integer('Profesorid')->unsigned();
-            $table->foreign('Profesorid')->references('idProfesor')->on('Profesors');
+            $table->bigInteger('Profesorid')->unsigned();
+            $table->foreign('Profesorid')->references('idProfesor')->on('profesors');
  
         });
     }

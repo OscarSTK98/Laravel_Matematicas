@@ -1,4 +1,4 @@
-@extends('Layouts/HTMLStructure')
+@extends('Layouts/HTMLStructureB4')
 
 @section('content')
 
@@ -6,64 +6,66 @@
 <br />
    
 <center> 
-    <h3>Descarga de material</h3>
+    <h4 class="text-center text-danger">Descarga de material</h4>
     <br />
-  
-    <input class="form-control" style="width: 300px;" id="myInput" type="text" placeholder="Buscar Archivo..">    </center>
-        
-    <br />      
-<center>
-    <table class="table table-bordered table-striped">
-   
-        <thead>
-            <tr>
-                <th><center>Nombre</center></th>
-                <th><center>Asignatura</center></th>
-                <th><center>Grupo</center></th>
-                <th><center>Profesor</center></th>
-                <th><center>Acceso</center></th>
-                <th><center>Descargar</center></th>
-            </tr>
-        </thead>
-    
-        <tbody id="myTable" style="width: 50%;">
-            
-            @foreach($Materiales as $item)
-            <tr>
-                <th scope="row"><center>{{$item->idMaterial}}</center></th>
-                <td><center>{{$item->Asignatura}}</center></td>
-                <td><center>{{$item->Grupo}}</center></td>
-                <td><center>{{$item->Nombre()}}</center></td>
-
-                @switch($item->Acceso)
-                    @case(1)
-                        <td><center>Restringido</center></td>
-                        <td><center><input type='button' class='btn btn-primary' value='Descargar Archivo'></center></td>
-                        @break
-                    
-                    @case(0)
-                        <td><center>Libre</center></td>
-                        <td><center><input type='button' class='btn btn-primary' value='Descargar Archivo'></center></td>
-                        @break
-                @endswitch
-            </tr>         
-            @endforeach()
-        </tbody>
-    </table>
-
-    <a href="/"><button type="submit"  style="width: 200px;" class="btn btn-danger">Regresar</button></a>
+    <div class="alert alert-danger">
+        Aqui podras descargar material de los profesores de la academia de matemáticas
+    </div>
 </center>
+    
+    <div id="accordion">
 
-<br />
-<br />
+    @php($i = 0);
+
+        @foreach($Materiales as $item)
+    
+        <div class="card">
         
-<script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse{{$i}}">
+                    <img class="Iconos" src="../icono.png" />
+                    {{$item->NombreArchivo}}, {{$item->Asignatura}} de {{$item->Nombre." ".$item->Apellidos}}
+                </a>
+            </div>
+            <div id="collapse{{$i}}" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    @switch($item->Acceso)
+                        @case(1)
+                            <label class="text-danger"><b>Material para grupo(s):</b></label> {{$item->Grupo}}.  
+                            <br />
+
+                            <label class="text-danger"><b>Tipo de acceso: </b></label> Restringido.
+                            <br />
+                            <i class="text-danger">Necesitas contraseña para poder descargar el archivo.</i>
+                            <br />
+                            <div class="d-flex justify-content-end">
+                                <button type='button' class='btn btn-primary'>Descargar</button>
+                            </div>
+                            @break
+                        
+                        @case(0)
+                            <label class="text-success"><b>Material para grupo(s):</b></label> {{$item->Grupo}}.  
+                            <br />
+
+                            <label class="text-success"><b>Tipo de acceso: </b></label> Libre.
+                            <br />
+                            <i class="text-success">Puedes descargar el archivo sin clave.</i>
+                            <br />
+                            <div class="d-flex justify-content-end">
+                                <button type='button' class='btn btn-primary'>Descargar</button>
+                            </div>
+                            @break
+                    @endswitch     
+
+                </div>
+            </div>
+        </div>
+        @php($i += 1);
+        @endforeach() 
+    </div>
+    
+    <center><a href="/"><button type="submit"  style="width: 200px;" class="btn btn-danger">Regresar</button></a></center>
+
+    <br />
+    <br />
+    

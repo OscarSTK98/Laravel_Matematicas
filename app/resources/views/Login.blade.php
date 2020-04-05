@@ -1,4 +1,4 @@
-@extends('Layouts/HTMLStructure')
+@extends('Layouts/HTMLStructureB3')
 
 @section('content')
 
@@ -30,9 +30,7 @@
             <button type="submit" style="width: 200px;" class="btn btn-success">Entrar</button>                  
         
         </form> 
-        
-        <br />
-     
+
         <a href="/"><button type="submit"  style="width: 200px;" class="btn btn-danger">Regresar</button></a>
 
         <br />

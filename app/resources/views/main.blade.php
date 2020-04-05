@@ -66,12 +66,14 @@
                 </nav>
 
                 <h3 class="text-center">Centro de Estudios Cientificos y Tecnológicos #3 "Estanislao Ramírez Ruíz"</h3>
-                <h3 class="text-center">¡Bienvenid@ al sitio oficial de la academía de matemáticas turno matutino!</h3>
+                <h4 class="text-center">¡Bienvenid@ al sitio oficial de la academía de matemáticas turno matutino!</h4>
 
                 <div class="text-center">
                     <img class="img__main" src="../www/images/CECYT3.png">
                 </div>
 
+                <br />
+                
                 <h4 class="text-center"><i>"En las matemáticas es donde el espiritu encuentra los elementos que más ansía: la continuidad y la perseverancia"</i></h4>
                 <h4 class="text-center fontWeight">Anatole France</h4>
 
