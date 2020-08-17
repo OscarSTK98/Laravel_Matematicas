@@ -1,0 +1,47 @@
+
+
+.label-algebra{
+	background-color: #208AFF; 
+}
+
+.label-trigonometria{
+	background-color: #2256FE;
+}
+
+.label-geometria{
+	background-color: #191FB8;
+}
+.label-diferencial{
+	background-color: #4F189D;
+}
+.label-integral{
+	background-color: #8223E6;
+}
+.label-probabilidad{
+	 background-color: #B726FF;
+}
+.label-libre{
+	background-color: #20D31A;
+}
+.label-restringido{
+	background-color: #D31A1A;
+}
+.label{
+
+	border-radius: 1020px;
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+.btn-descargar{
+	cursor: pointer; padding: .5rem 1.6rem;
+    font-size: .64rem; color: #fff;
+    background-color: #3f51b5 !important;font-size: 75%;
+    font-weight: 700;
+}
